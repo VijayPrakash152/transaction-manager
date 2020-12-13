@@ -13,7 +13,7 @@ require("./startup/cors")(app);
 require("./startup/db")();
 require("./startup/logging")();
 
-cron.schedule("*/2 * * * *", async () => {
+cron.schedule("30 0 * * *", async () => {
   try {
     (async () => {
       const {
@@ -31,7 +31,7 @@ cron.schedule("*/2 * * * *", async () => {
       );
       await csv.create(headers, data, pathName);
       await emails.send(
-        "vijayprakashh06@gmail.com",
+        config.get("admins_email"),
         pathName,
         "daily-transaction-report.csv",
         "Daily Transaction Report",
