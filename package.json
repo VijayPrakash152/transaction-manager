@@ -1,0 +1,26 @@
+{
+  "name": "daily-transaction-report-mailer",
+  "version": "1.0.0",
+  "description": "An app that sends daily transaction report via e-mail",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Vijay Prakash",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.3",
+    "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
+    "express": "^4.17.1",
+    "googleapis": "^66.0.0",
+    "mongoose": "^5.11.7",
+    "node-cron": "^2.0.3",
+    "nodemailer": "^6.4.17",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
