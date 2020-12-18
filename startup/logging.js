@@ -1,11 +1,12 @@
 const winston = require("winston");
-// require('winston-mongodb');
-// require("express-async-errors"); may use it
+const path = require("path");
 
 module.exports = function () {
   winston.exceptions.handle(
     new winston.transports.Console({ colorize: true, prettyPrint: true }),
-    new winston.transports.File({ filename: "uncaughtExceptions.log" })
+    new winston.transports.File({
+      filename: path.join(__dirname, "..", "/logs", "uncaughtExceptions.log"),
+    })
   );
 
   process.on("unhandledRejection", (ex) => {
@@ -14,14 +15,16 @@ module.exports = function () {
 
   winston.add(
     new winston.transports.File({
-      filename: "logfile.log",
-      handleExceptions: true,
+      filename: path.join(__dirname, "..", "/logs", "logfile.log"),
+      handleExceptions: false,
     })
   );
 
-  //   winston.add(new winston.transports.File(), { filename: "logfile.log" });
-  // winston.add(winston.transports.MongoDB, {
-  //   db: 'mongodb://localhost/vidly',
-  //   level: 'info'
-  // });
+  winston.add(
+    new winston.transports.Console({
+      colorize: true,
+      prettyPrint: true,
+      handleExceptions: true,
+    })
+  );
 };

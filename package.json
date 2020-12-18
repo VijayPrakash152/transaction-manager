@@ -7,14 +7,19 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
+  "engines": {
+    "node" : "15.3.0"
+  },
   "author": "Vijay Prakash",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
     "config": "^3.3.3",
     "cors": "^2.8.5",
     "csv-writer": "^1.6.0",
     "express": "^4.17.1",
     "googleapis": "^66.0.0",
+    "helmet": "^4.2.0",
     "mongoose": "^5.11.7",
     "node-cron": "^2.0.3",
     "nodemailer": "^6.4.17",
